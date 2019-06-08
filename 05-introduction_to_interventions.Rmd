@@ -16,9 +16,9 @@ In this lecture we will learn about the meaning of interventions and their impli
 
 ## Ladder of causality (slides)
   
-The ladder of causality has 3 levels: 1) Association 2) Intervention 3) Counterfactual.
+The ladder of causality has 3 levels: 1) Association 2) Intervention 3) Counterfactual. Most of the definitions and examples in this section are from the book of why by Pearl.
 
-```{r fig1, fig.cap = "figure caption.", fig.height=7, fig.width=7 ,fig.align='center'}
+```{r fig1, fig.cap = "Ladder of causality. from the book of why by pearl.", fig.height=7, fig.width=7 ,fig.align='center', echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("./fig/Ladder_of_Causality.png")
@@ -28,7 +28,7 @@ grid.raster(img)
 ### Association 
 
 The first level, Association is related to the cognitive ability of seeing or in other words observation. It includes broad class of statistically learned models (discriminiative and generative). In this level, we are looking for regularities in observations. This is what an owl does when observing how a rat moves and figuring out where the rodent is likely to be a moment later, and it is what a computer Go program does when it studies a database of millions of Go games so that it can figure out which moves are associated with a higher percentage of wins. We say that
-one event is associated with another if observing one changes the likelihood of observing the other(from the book of why by Pearl).
+one event is associated with another if observing one changes the likelihood of observing the other.
 
 In the association level of the ladder of causality, we call for predictions based on passive observations. As it is noted in figure \@ref(fig:fig1) this level is characterized by the question "what if I see ...?" For example one example in this case is how likely is a customer who bought toothpaste to also by dental floss? This can be easily calculated in Statistics by gathering data on the customers who bought toothpaste and then among those focus on the ones who also bought dental floss. In other words, we want to calculate the conditional probability of $P(floss = 1 | toothpaste = 1)$. This will be calculated based on observational data or in other word based on what was seen. Statistics alone cannot tell whether buying floss is the cause of buying the toothpaste or vice versa. For the sales manager it really doesn't matter what is the causal relationship between this two items. Another example of association is "correlation" and "regression" which is a typical measure of association. Most of machine learning methods are also in the first ladder of causality like deep neural networks. In deep neural networks We are looking for a way to learn the association in a high dimensional non linear space. Deep learning has given us machines that have impressive abilities but no intelligence. They are driven by a stream of observations (raw data) to which they attempt to fit a function, just like how we fit a line in linear regression.
 
@@ -90,7 +90,7 @@ Level 3 of ladder of causality is characterized by the question "What if I had d
       Y ~ Dirac(y) # or just `Y = y`
   ```
 
-### Intervention representatio on DAG
+### Intervention representation on DAG
 
   Perfect interventions could be viewed as graph mutilation, when "mutilate" the DAG means removing incoming edges the intervened upon variable. 
   
@@ -98,7 +98,7 @@ Level 3 of ladder of causality is characterized by the question "What if I had d
   
   Graphically, perfect intervention can be represented as a node with no causes and two states (on/off) in a Causal Bayes Net. One example is as below:
     
-```{r fig2, fig.cap = "DAG", fig.height=2, fig.width=3 ,fig.align='center'}
+```{r fig2, fig.cap = "DAG", fig.height=2, fig.width=3 ,fig.align='center', echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("./fig/DAG.png")
@@ -107,23 +107,18 @@ grid.raster(img)
     
 An intervention on B would look like this:
 
-```{r fig3, fig.cap = "Intervention_DAG", fig.height=3, fig.width=4,fig.align='center'}
+```{r fig3, fig.cap = "Intervention_DAG", fig.height=3, fig.width=4,fig.align='center', echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("./fig/Intervention_DAG.png")
 grid.raster(img)
 ```
 
-### do we need these three sessions below ?
-* implemented in bnlearn (slides)
-* Equivalence class as graph manipulation
-* Finding the PDAG of the mutilated class
-
 ### Other type of interventions
 
   Perfect intervention means we set the value of X to x, while a soft intervention is a method in which an intervention increases the likelihood of entering the desired state. 
   
-  Randomization could be one special case of intervention which is aims to break influence of latent confounders. One implementation could be probabilistic program using metaprogramming technique, such as `do`-operater in pyro.
+  Randomization could be one special case of intervention which aims to break influence of latent confounders. One implementation could be probabilistic program using metaprogramming technique, such as `do`-operater in pyro.
   
 ### Interventions as Pearl's Do-calculus
 
@@ -131,6 +126,6 @@ grid.raster(img)
 
   It allows us to reason about interventions, when it is not feasible to do the intervention. Another advantage of using do-operator is go calculate the theoretical effect on an intervention without actually doing anything. 
 
-  One must note that there is a significant difference between $P(Y|X)$ and $P(Y|do(X)$. $P(Y|X)$ is an example of Association and the data is generated by performing rejection sampling until the desired number of samples is retrieved. There is no change in the original distribution of any of the random variables.
-  In contrast, $P(Y|do(X)$ is an intervention where the value of X is deterministic and becomes independent of its parents. Therefore, the resultant data from $P(Y|X)$ and $P(Y|do(X)$ is different.
+  One must note that there is a significant difference between $P(Y|X)$ and $P(Y|do(X))$. $P(Y|X)$ is an example of Association and the data is generated by performing rejection sampling until the desired number of samples is retrieved. There is no change in the original distribution of any of the random variables.
+  In contrast, $P(Y|do(X))$ is an intervention where the value of X is deterministic and becomes independent of its parents. Therefore, the resultant data from $P(Y|X)$ and $P(Y|do(X))$ is different.
 
