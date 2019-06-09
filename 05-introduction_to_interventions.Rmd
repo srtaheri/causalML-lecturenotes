@@ -14,7 +14,7 @@ knitr::opts_chunk$set(fig.path="fig/")
 In this lecture we will learn about the meaning of interventions and their implication to prediction.
 
 
-## Ladder of causality (slides)
+## Ladder of causality
   
 The ladder of causality has 3 levels: 1) Association 2) Intervention 3) Counterfactual. Most of the definitions and examples in this section are from the book of why by Pearl.
 
