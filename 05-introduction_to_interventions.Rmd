@@ -42,7 +42,36 @@ Level 2 of ladder of causality is characterized by the question "What if we do .
 
 Level 3 of ladder of causality is characterized by the question "What if I had done ...?" "Why?". No experiment can go back in time to see the effect of a different treatment on the patient when all other conditions are fixed. The data that we have cannot tell us what will happen in a counterfactual or imaginary world, but the human mind makes these inferences reliably all the time. Causal Bayesian networks cannot answer counterfactual questions. For toothpaste example, we can ask "What is the probability that a customer who already bouth toothpaste would still have bought it if we had doubled the price?". Having a causal model that can answer counterfactual questions is very valuable. We call these models Structural causal models (SCMs) that can be implemented in a probabilistic programming language.
 
+### Structural causal models
 
+Structural causal model (SCM) implies the nature of data generation procedure, which has both deterministic process and random variation. 
+
+Considering a simple linear regression case,  
+$$X = \pi_x  \\
+\epsilon = N(0,1)  \\
+Y= \beta X + \alpha + \epsilon$$
+
+In this case, the data generation process has no deterministic mechanism.  \
+
+In a slightly different case,  
+
+$$N_x = \pi_x \\
+X = F(N_x) \\
+\epsilon = N(0,1) \\  
+Y= \beta X + \alpha + \epsilon$$
+
+In this case, the data generation process has both deterministic mechanism (i.e. $F(N_x)$) and random process on X.  
+  
+Incorperating deterministic procedure into causal model enable us to do counterfactual reasoning later.
+
+For example, in a simple case like X -> Y, SCM can be described as program below,  
+
+|                    def program(noise):  
+|                        $N_X$ = Noise[X].sample()  
+|                        $N_Y$ = Noise[Y].sample()  
+|                        X = $F_X(N_x)$  
+|                        Y = $F_Y(X, N_Y)$  
+  
 ## Interventions and implications to prediction
 
   Interventions are one level above Associations in the ladder of causality. Conceptually speaking, as the word suggests, intervention means to change something. An example of intervention is "How would my expected lifestyle change if I become a vegetarian?" This is a concept used extensively in reinforcement learning.
