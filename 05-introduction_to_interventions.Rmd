@@ -74,7 +74,11 @@ For example, in a simple case like X -> Y, SCM can be described as program below
   
 ## Interventions and implications to prediction
 
-  Interventions are one level above Associations in the ladder of causality. Conceptually speaking, as the word suggests, intervention means to change something. An example of intervention is "How would my expected lifestyle change if I become a vegetarian?" This is a concept used extensively in reinforcement learning. Another example is when we perform a strudy on a new drug, we want to identify how a patient's illness responds when we intervene the situation by medicating the patient.
+  Interventions are one level above Associations in the ladder of causality. Conceptually speaking, as the word suggests, intervention means to change something.  
+  
+  An example of intervention is "How would my expected lifestyle change if I become a vegetarian?" This is a concept used extensively in reinforcement learning.  
+    
+  Another example is when we perform a strudy on a new drug, we want to identify how a patient's illness responds when we intervene the situation by medicating the patient.
 
 ### Relationship between intervention and causation
 
@@ -102,7 +106,10 @@ There is a famous quote that say "correlation is not causation". If two variable
     | 0 | 0           | 1 | .2   |
     | 0 | 1           | 0 | .1   |
     | 0 | 1           | 1 | .9   |
-    | 1 | $\forall x$ | 1 | 1.0  | 
+    | 1 | 0           | 0 |  0   |
+    | 1 | 0           | 1 |  1   |
+    | 1 | 1           | 0 |  0   |
+    | 1 | 1           | 1 |  1   |
     
   Mathmatically, it could be presented as below,
     
