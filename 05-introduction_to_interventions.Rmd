@@ -100,7 +100,10 @@ There is a famous quote that say "correlation is not causation". If two variable
     | 0 | 0           | 1 | .2   |
     | 0 | 1           | 0 | .1   |
     | 0 | 1           | 1 | .9   |
-    | 1 | $\forall x$ | 1 | 1.0  | 
+    | 1 | 0           | 0 |  0   |
+    | 1 | 0           | 1 |  1   |
+    | 1 | 1           | 0 |  0   |
+    | 1 | 1           | 1 |  1   |
     
   Mathmatically, it could be presented as below,
     
