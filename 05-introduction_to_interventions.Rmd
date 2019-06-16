@@ -74,9 +74,11 @@ For example, in a simple case like X -> Y, SCM can be described as program below
   
 ## Interventions and implications to prediction
 
-  Interventions are one level above Associations in the ladder of causality. Conceptually speaking, as the word suggests, intervention means to change something. An example of intervention is "How would my expected lifestyle change if I become a vegetarian?" This is a concept used extensively in reinforcement learning.
+  Interventions are one level above Associations in the ladder of causality. Conceptually speaking, as the word suggests, intervention means to change something. An example of intervention is "How would my expected lifestyle change if I become a vegetarian?" This is a concept used extensively in reinforcement learning. Another example is when we perform a strudy on a new drug, we want to identify how a patient's illness responds when we intervene the situation by medicating the patient.
 
 ### Relationship between intervention and causation
+
+There is a famous quote that say "correlation is not causation". If two variables are correlated, one is not necessarily the cause of the other one. For example ice cream sale and rate of crime are highly correlated with each other, but none of them is the cause of the other one. In fact, ice cream and violent crime are more common in hot weather. For this reason, in order to find causality, randomized controlled experiments are useful tools. In these experiments, all factors that influence the outcome variable are static, or vary at random, except for one variable. So if the outcome variable changes, it means that the outcome variable must be due to that one input variable.
 
   Intervention helps to find causal relationship. Considering a simple case where A and B are only two nodes in BayesNet. Their association implies either A causes B or B causes A. With intervention of A, if probability of B changes, then A is the cause, otherwise B is the cause.
   
